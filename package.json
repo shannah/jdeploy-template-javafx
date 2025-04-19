@@ -1,0 +1,33 @@
+{
+    "bin": {"jdeploy-template-javafx": "jdeploy-bundle/jdeploy.js"},
+    "author": "Steve Hannah",
+    "description": "Parent for JavaFX starter project",
+    "main": "index.js",
+    "preferGlobal": true,
+    "repository": "",
+    "version": "1.0.0",
+    "jdeploy": {
+        "jdk": false,
+        "buildCommand": [
+            "./mvnw",
+            "package"
+        ],
+        "publishTargets": [{
+            "name": "npm: jdeploy-template-javafx",
+            "type": "NPM",
+            "url": "jdeploy-template-javafx"
+        }],
+        "javaVersion": "21",
+        "jar": "target/jdeploy-template-javafx-1.0-SNAPSHOT.jar",
+        "javafx": true,
+        "title": "JavaFX Maven Demo"
+    },
+    "dependencies": {
+        "njre": "^0.2.0",
+        "shelljs": "^0.8.4"
+    },
+    "license": "ISC",
+    "name": "jdeploy-template-javafx",
+    "files": ["jdeploy-bundle"],
+    "scripts": {"test": "echo \"Error: no test specified\" && exit 1"}
+}
