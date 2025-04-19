@@ -1,57 +1,41 @@
-= jDeploy JavaFX Starter Template
+# jDeploy Template JavaFX Maven Starter
 
-https://github.com/null/releases[Releases]
+## About this Project
 
-A project template for a JavaFX project that includes workflows to auto-deploy native app installers for every commit, and every release/tag.
+This project was generated using the "JavaFX Maven Starter" project template from [jDeploy](https://www.jdeploy.com), a tool to deploy Java desktop apps on Windows, Mac, and Linux.
 
-== Features
+To create your own application based on this template, open jDeploy, select "Create New Project", select the "Swing Boot Starter" template, and complete the wizard.
 
-Native Desktop App Installers::
-This project includes a GitHub actions workflow that generates native installers for each branch and release.  https://github.com/shannah/jdeploy-javafx-starter/releases/tag/master[See example].
-+
-image::https://github.com/shannah/jdeploy-javafx-starter/wiki/images/master-tag.png[Example Github Release with Native bundles]
+![Image](https://github.com/user-attachments/assets/eb4854db-facb-41c7-8491-d6a15466007a)
 
-JavaFX 19::
-Based on the official https://openjfx.io/openjfx-docs/#maven[javafx-archetype-simple archetype] developed by the openjfx project.
+## Requirements
 
-Java 17::
-Currently builds for Java 17, but will be updated to support latest LTS release.
+* Java 24
 
-Auto-Updates::
-Native apps will automatically update to the latest version on launch.  Bundles created via a Tag or Release will auto-update to the latest release.  Bundles created via a commit to a branch, will auto-update to the latest commit on that branch.
+## Features
 
-Distribute "Branch-based" apps::
-Each branch will have its own corresponding installer, which will automatically receive updates for that branch.  E.g. If you create "dev" and "stage" branches, each will have its own "release".  Users of the "stage" app will automatically receive updates to the "stage" branch.  Users of the "dev" app will receive updates to the "dev" branch.
+* Maven
+* JavaFX
+* Modular
 
-== Getting Started
+## Run
+```
+./mvnw javafx:run
+```
 
-See https://github.com/shannah/jdeploy-javafx-starter/wiki/Getting-Started[Getting Started Wiki Page]
+## Build
 
-== How it Works
+```
+./mvnw package
+```
 
-This template includes a link:.github/workflows/jdeploy.yml[workflow] that will automatically generate native app installers for Windows, Mac, and Linux to track all branches and releases/tags in this repository.  This workflow runs on all commits and all tags.
+### Deploy
 
-For "commits", it will generate native bundles in a tag whose name matches the branch name.  E.g. Bundles for the "master" branch will be posted in a tag called "master", which will include native bundles that are kept up-to-date with the state of the "master" branch.
+**Short Version:**
+Open project in [jDeploy](https://www.jdeploy.com), and press "Publish"
 
-== Native Bundle Configuration
+[Long version](https://www.jdeploy.com/docs/manual/#_publishing_your_application)
 
-Native bundles are generated using jDeploy a free, open source tool for deploying Java apps as native bundles. It includes a desktop GUI app for configuring your app.  You can customize the icon, splash screen, file type associations, and more.
+### Advanced Deployment
 
-https://www.jdeploy.com[Learn more].
-
-=== DMG Releases
-
-By default Mac releases use an installer.  You can optionally enable DMG releases also by setting the variable `JDEPLOY_CREATE_DMG=true` in your repository settings.
-You will also need to define the following secrets:
-
-. `MAC_DEVELOPER_ID` : Your email address for your Apple developer account.
-. `MAC_DEVELOPER_CERTIFICATE_P12_BASE64` : A base64 encoding of your Mac developer certificate (p12)
-. `MAC_DEVELOPER_CERTIFICATE_PASSWORD` : The password you used for your Mac developer certificate p12, when you exported it from your keychain.
-. `MAC_NOTARIZATION_PASSWORD` : The application-specific password that you set for notarization in your Apple developer account.
-
-== Private Repositories
-
-This template will work out of the box for public repositories.  However, releases must be published to a public repository in order for your app to be able to access updates.  Therefore, if you are using a private repository, you'll need to make some small changes to the link:.github/workflows/jdeploy.yml[workflow file] to direct it to publish releases to a different repository.
-
-https://www.jdeploy.com/docs/manual/#_publishing_releases_for_private_repositories[Learn more]
-
+See [jDeploy Manual](https://www.jdeploy.com/docs/manual/)
